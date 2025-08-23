@@ -29,7 +29,7 @@ class ChatApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      home: ChatPage(),
+      home: const ChatPage(),
     );
   }
 }
