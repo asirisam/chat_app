@@ -1,3 +1,4 @@
+import 'package:chat_app/chat_page.dart';
 import 'package:chat_app/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class ChatApp extends StatelessWidget {
 
         // Explicitly set AppBar color to blue
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.yellow,
+          backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
         ),
 
@@ -28,7 +29,7 @@ class ChatApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      home: LoginPage(),
+      home: ChatPage(),
     );
   }
 }
