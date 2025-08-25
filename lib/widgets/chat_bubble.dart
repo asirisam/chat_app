@@ -25,6 +25,7 @@ class ChatBubble extends StatelessWidget {
             Image.network(
               'https://img.itch.zone/aW1nLzU2MTA3NTUucG5n/original/tcdxAa.png',
               height: 200,
+              width: 200,
             )
           ],
         ),
