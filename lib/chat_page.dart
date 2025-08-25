@@ -1,42 +1,10 @@
 import 'package:chat_app/login_page.dart';
+import 'package:chat_app/widgets/chat_bubble.dart' show ChatBubble;
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
 
-  Widget getChatBubble(alignment, message){
-    return Align(
-      alignment: alignment,
-      child: Container(
-        padding: EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              '$message',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white
-              ),
-            ),
-            Image.network(
-              'https://img.itch.zone/aW1nLzU2MTA3NTUucG5n/original/tcdxAa.png',
-              height: 200,
-            )
-          ],
-        ),
-        margin: EdgeInsets.all(50),
-        decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
-              bottomLeft: Radius.circular(12),
-            )
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +30,14 @@ class ChatPage extends StatelessWidget {
             flex: 1,
             child: ListView(
               children: [
-                getChatBubble(Alignment.centerLeft, 'Hello, this is Asiri!'),
-                getChatBubble(Alignment.centerRight, 'Hi!!'),
+                ChatBubble(
+                    alignment: Alignment.centerLeft,
+                    message: 'Hello, this is Asiri!'
+                ),
+                ChatBubble(
+                    alignment: Alignment.centerLeft,
+                    message: 'Hi!!'
+                ),
             
               ],
             ),
