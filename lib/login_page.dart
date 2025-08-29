@@ -6,8 +6,7 @@ class LoginPage extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
 
   void loginUser() {
-
-    if(_formkey.currentState!=null && _formkey.currentState!.validate()) {
+    if (_formkey.currentState != null && _formkey.currentState!.validate()) {
       print(userNameController.text);
       print(passwordController.text);
 
@@ -52,71 +51,61 @@ class LoginPage extends StatelessWidget {
                 height: 200,
               ),
 
+              //TODO: Add Username & Password text fields
+
               Form(
                 key: _formkey,
                 child: Column(
                   children: [
                     TextFormField(
-                      validator: (value){
-                        if(value!=null && value.isNotEmpty && value.length <5){
+                      validator: (value) {
+                        if (value != null &&
+                            value.isNotEmpty &&
+                            value.length < 5) {
                           return "Your username should be more than 5 characters";
-                        }
-                        else if (value != null && value.isEmpty){
-                          return "Please enter your username";
+                        } else if (value != null && value.isEmpty) {
+                          return "Please type your username";
                         }
                         return null;
                       },
                       controller: userNameController,
                       decoration: InputDecoration(
-                        hintText: 'Add your username',
-                        hintStyle: TextStyle(color: Colors.blueGrey),
-                        border: OutlineInputBorder(),
-                      ),
+                          hintText: 'Add your username',
+                          hintStyle: TextStyle(color: Colors.blueGrey),
+                          border: OutlineInputBorder()),
                     ),
-
                     SizedBox(
-                      height: 24
+                      height: 24,
                     ),
-
                     TextFormField(
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                        hintText: 'Add your password',
-                        hintStyle: TextStyle(color: Colors.blueGrey),
-                        border: OutlineInputBorder(),
-                      ),
+                          hintText: 'Type your password',
+                          hintStyle: TextStyle(color: Colors.blueGrey),
+                          border: OutlineInputBorder()),
                     ),
                   ],
                 ),
               ),
-
               SizedBox(
-                  height: 24
+                height: 24,
               ),
-
               ElevatedButton(
                   onPressed: loginUser,
                   child: Text(
                     'Login',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
                   )),
-              InkWell(
-                splashColor: Colors.red,
-                onDoubleTap: (){
-                  print('Double tapped!');
-                },
-                onLongPress: (){
-                  print('Long pressed!');
-                },
-                onTap: (){
-                  //todo: navigate to browser
-                  print('Link clocked!');
+              GestureDetector(
+                onTap: () {
+                  //todo: Navigate to browser
+                  print('Link clicked!');
                 },
                 child: Column(
                   children: [
                     Text('Find us on'),
-                    Text('https://asiri.com'),
+                    Text('https://poojabhaumik.com'),
                   ],
                 ),
               )
